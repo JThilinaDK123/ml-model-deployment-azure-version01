@@ -15,3 +15,8 @@ Once deployed, the web application will have a publicly accessible URL, providin
 * Front-End Development: The HTML and CSS files for the web application’s interface were created and organized into templates and static folders, respectively. The templates folder contains the HTML files that define the structure of the web pages, while the static folder holds the CSS files to style the application, providing a clean and user-friendly interface
 
 * The app.py file serves as the main Flask application for the Patient Diabetic prediction project. It loads the pre-trained SVC model from the diabetes_model.pkl pickle file and provides both a web interface and an API endpoint for making predictions. The root route (/) renders the home page (home.html) where users can input patient details. The /predict route processes these inputs, converts them into a format suitable for the model, predicts whether the pateint has diabetics or not, and displays the result on the web page. Additionally, the /predict_api route allows direct API calls using JSON data, returning predictions programmatically. This setup enables seamless interaction with the model, both through a user-friendly web interface and via API requests, making it ready for deployment on Azure with a public URL
+
+#### Note:
+if youre using a linux os, apply below line under the configuration tab as a startup command
+
+gunicorn --bind=0.0.0.0:$PORT app:app
